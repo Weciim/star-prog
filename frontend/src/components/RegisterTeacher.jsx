@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import teacher from "../assets/images/teacher.png";
 
 const RegisterTeacher = () => {
+  // State for form data
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    institution: "",
+    subjects: "",
+  });
+
+  // State for API response
+  const [responseMessage, setResponseMessage] = useState("");
+
+  // Handle form input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/teachers/create", {
+        ...formData,
+        subjects: formData.subjects.split(",").map((subject) => subject.trim()), // Convert subjects to an array
+      });
+
+      // Set success message
+      setResponseMessage(response.data.message);
+    } catch (error) {
+      // Handle errors
+      setResponseMessage(error.response?.data?.message || "Failed to register teacher");
+    }
+  };
+
   return (
-    <section className=" flex flex-col md:flex-row items-stretch bg-gradient-to-b from-purple-50 to-purple-100 p-6 lg:px-56">
+    <section className="flex flex-col md:flex-row items-stretch bg-gradient-to-b from-purple-50 to-purple-100 p-6 lg:px-56">
       {/* Left Section: Image */}
       <div className="md:w-1/2 h-full flex items-center justify-center">
         <img
@@ -19,19 +56,7 @@ const RegisterTeacher = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-purple-900">logo</h1>
 
         {/* Welcome Message */}
-        <h2 className="text-xl md:text-2xl font-semibold text-purple-700">
-          Bienvenue à ...!
-        </h2>
-
-        {/* Buttons */}
-        <div className="flex space-x-4">
-          <button className="px-6 py-3 bg-purple-700 text-white rounded-lg shadow-md hover:opacity-90">
-            Se connecter
-          </button>
-          <button className="px-6 py-3 bg-white text-purple-700 border border-purple-700 rounded-lg shadow-md hover:bg-purple-100">
-            S'inscrire
-          </button>
-        </div>
+        <h2 className="text-xl md:text-2xl font-semibold text-purple-700">Bienvenue à ...!</h2>
 
         {/* Description */}
         <p className="text-gray-600 text-center">
@@ -41,82 +66,78 @@ const RegisterTeacher = () => {
         </p>
 
         {/* Form */}
-        <form className="w-full space-y-6">
-          {/* Email Input */}
+        <form onSubmit={handleSubmit} className="w-full space-y-6">
+          {/* Name Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="Entrez votre email"
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Nom et prénom
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Nom et prénom</label>
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Entrez votre nom et prénom"
               className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
             />
           </div>
 
+          {/* Email Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Etablissement
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
             <input
-              type="text"
-              placeholder="Entrez votre établissement"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Entrez votre email"
               className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Matière enseignée
-            </label>
-            <select
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Sélectionnez une matière
-              </option>
-              <option value="mathematics">Mathématiques</option>
-              <option value="science">Sciences</option>
-              <option value="literature">Littérature</option>
-              <option value="history">Histoire</option>
-              <option value="language">Langues</option>
-              <option value="other">Autre</option>
-            </select>
           </div>
 
           {/* Password Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Mot de passe
-            </label>
-            <div className="relative">
-              <input
-                type="password"
-                placeholder="Entrez votre mot de passe"
-                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
-              />
-              <button
-                type="button"
-                className="absolute right-4 top-3 text-gray-500 hover:text-purple-700"
-              >
-                👁️
-              </button>
-            </div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Entrez votre mot de passe"
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
+            />
           </div>
 
-          {/* Submit Buttons */}
+          {/* Institution Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Etablissement</label>
+            <input
+              type="text"
+              name="institution"
+              value={formData.institution}
+              onChange={handleChange}
+              placeholder="Entrez votre établissement"
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
+            />
+          </div>
+
+          {/* Subjects Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Matière enseignée</label>
+            <input
+              type="text"
+              name="subjects"
+              value={formData.subjects}
+              onChange={handleChange}
+              placeholder="Entrez les matières, séparées par des virgules"
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
+            />
+          </div>
+
+          {/* Submit Button */}
           <div className="flex flex-col items-center gap-4">
             <button
               type="submit"
@@ -124,15 +145,15 @@ const RegisterTeacher = () => {
             >
               S'inscrire
             </button>
-
-            <button
-              type="button"
-              className="px-6 py-3 bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold rounded-lg shadow-md hover:opacity-90"
-            >
-              S'inscrire en tant que Mentor
-            </button>
           </div>
         </form>
+
+        {/* Response Message */}
+        {responseMessage && (
+          <div className="mt-4 text-center text-purple-700 font-semibold">
+            {responseMessage}
+          </div>
+        )}
       </div>
     </section>
   );

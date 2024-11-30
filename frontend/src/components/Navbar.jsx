@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Logo from "../assets/images/Logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast ,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Navbar() {
   const location = useLocation();
@@ -50,7 +52,10 @@ export default function Navbar() {
       localStorage.removeItem("userId");
   
       // Trigger toast success message
-      navigate('/login')
+      toast.success("Logout successful!");
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
     } catch (error) {
       console.error("Logout failed:", error);
       toast.error("Logout failed! Please try again.");

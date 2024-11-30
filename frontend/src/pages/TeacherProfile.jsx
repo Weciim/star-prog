@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
+import ProfileCalendar from "../components/ProfileCalendar";
 import TeacherHero from "../components/TeacherHero";
+
 
 const UserProfile = () => {
   const [userProfile, setUserProfile] = useState(null);
@@ -41,6 +42,7 @@ const UserProfile = () => {
   return (
     <>
     <TeacherHero></TeacherHero>
+    <ProfileCalendar></ProfileCalendar>
 
     </>
   );

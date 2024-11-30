@@ -46,8 +46,8 @@ const LoginForm = () => {
     } catch (error) {
       // Display error message
       setMessage(error.response?.data?.message || "Invalid credentials, please try again");
-      toast.error(message, 
-      );
+      toast.error(message);
+      
     }
   };
 

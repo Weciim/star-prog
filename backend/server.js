@@ -4,6 +4,7 @@ import cors from "cors"; // Import CORS
 import connectDB from './db.js'
 import courseRoutes from './routes/courseRoutes.js'
 import teacherRoutes from './routes/teacherRoutes.js'
+import authRoutes from './routes/authRoutes.js'
 
 
 dotenv.config()
@@ -28,6 +29,9 @@ app.use('/api/courses' ,courseRoutes)
 
 // Route to register teachers
 app.use("/api/teachers", teacherRoutes);
+
+// auth routes
+app.use("/api/auth", authRoutes);
 
 
 app.listen(port , ()=> console.log(`server is running on port ${port}`))

@@ -3,7 +3,7 @@ import axios from "axios";
 import teacher from "../assets/images/teacher.png";
 
 const RegisterTeacher = () => {
-  // State for form data
+  // State for form inputs
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,30 +12,39 @@ const RegisterTeacher = () => {
     subjects: "",
   });
 
-  // State for API response
-  const [responseMessage, setResponseMessage] = useState("");
+  // State for messages
+  const [message, setMessage] = useState("");
 
-  // Handle form input changes
+  // Handle input change
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-
+    e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/teachers/create", {
+      const response = await axios.post("http://localhost:5000/api/auth/register_teacher", {
         ...formData,
-        subjects: formData.subjects.split(",").map((subject) => subject.trim()), // Convert subjects to an array
+        role: "Teacher", // Set the role to Teacher
       });
 
-      // Set success message
-      setResponseMessage(response.data.message);
+      // Display success message
+      setMessage("Registration successful!");
+
+      // Clear the form
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+        institution: "",
+        subjects: "",
+      });
+
+      console.log(response.data);
     } catch (error) {
-      // Handle errors
-      setResponseMessage(error.response?.data?.message || "Failed to register teacher");
+      // Display error message
+      setMessage(error.response?.data?.message || "Something went wrong!");
     }
   };
 
@@ -56,20 +65,24 @@ const RegisterTeacher = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-purple-900">logo</h1>
 
         {/* Welcome Message */}
-        <h2 className="text-xl md:text-2xl font-semibold text-purple-700">Bienvenue à ...!</h2>
+        <h2 className="text-xl md:text-2xl font-semibold text-purple-700">
+          Bienvenue à ...!
+        </h2>
 
-        {/* Description */}
-        <p className="text-gray-600 text-center">
-          Transformez votre manière d’enseigner avec les nouvelles technologies
-          ! Des cours simples et pratiques pour maîtriser les outils numériques
-          et innover dans vos classes.
-        </p>
+        {/* Display Message */}
+        {message && (
+          <p className={`text-center text-lg font-semibold ${message === "Registration successful!" ? "text-green-500" : "text-red-500"}`}>
+            {message}
+          </p>
+        )}
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="w-full space-y-6">
+        <form className="w-full space-y-6" onSubmit={handleSubmit}>
           {/* Name Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Nom et prénom</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Nom et prénom
+            </label>
             <input
               type="text"
               name="name"
@@ -83,7 +96,9 @@ const RegisterTeacher = () => {
 
           {/* Email Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -95,23 +110,11 @@ const RegisterTeacher = () => {
             />
           </div>
 
-          {/* Password Input */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Entrez votre mot de passe"
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
-              required
-            />
-          </div>
-
           {/* Institution Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Etablissement</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Etablissement
+            </label>
             <input
               type="text"
               name="institution"
@@ -125,35 +128,54 @@ const RegisterTeacher = () => {
 
           {/* Subjects Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Matière enseignée</label>
-            <input
-              type="text"
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Matière enseignée
+            </label>
+            <select
               name="subjects"
               value={formData.subjects}
               onChange={handleChange}
-              placeholder="Entrez les matières, séparées par des virgules"
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
+            >
+              <option value="" disabled>
+                Sélectionnez une matière
+              </option>
+              <option value="Mathematics">Mathématiques</option>
+              <option value="Science">Sciences</option>
+              <option value="Literature">Littérature</option>
+              <option value="History">Histoire</option>
+              <option value="Language">Langues</option>
+              <option value="Other">Autre</option>
+            </select>
+          </div>
+
+          {/* Password Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Mot de passe
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Entrez votre mot de passe"
               className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
               required
             />
           </div>
 
           {/* Submit Button */}
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="w-[40%] px-6 py-3 bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold rounded-lg shadow-md hover:opacity-90"
+              className="px-6 py-3 bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold rounded-lg shadow-md hover:opacity-90"
             >
               S'inscrire
             </button>
           </div>
         </form>
-
-        {/* Response Message */}
-        {responseMessage && (
-          <div className="mt-4 text-center text-purple-700 font-semibold">
-            {responseMessage}
-          </div>
-        )}
       </div>
     </section>
   );

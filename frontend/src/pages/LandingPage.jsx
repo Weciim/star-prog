@@ -7,6 +7,7 @@ import MentorSection from '../components/MentorSection'
 import SubscribeNow from '../components/SubscribeNow'
 import Footer from '../components/Footer'
 
+
 const LandingPage = () => {
   return ( 
     <>

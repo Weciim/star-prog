@@ -6,25 +6,12 @@ const Lessons = () => {
       <div className="max-w-7xl mx-auto flex flex-col gap-28">
         {/* First Child: Title, Paragraph, and Buttons */}
         <div className="flex flex-col items-center text-center gap-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-4">
-            Qualified lessons for students
-          </h2>
-          <p className="text-gray-600 text-lg mb-6 max-w-lg">
-            A lesson or class is a structured period of time where learning is
-            intended to occur. It involves one or more students being taught by
-            a teacher or instructor.
-          </p>
-          <div className="flex space-x-4">
-            <button className="px-6 py-3 bg-gray-100 text-purple-700 font-semibold rounded-lg shadow hover:bg-gray-200 transition">
-              Kindergarten
-            </button>
-            <button className="px-6 py-3 bg-purple-700 text-white font-semibold rounded-lg shadow hover:opacity-90 transition">
-              High School
-            </button>
-            <button className="px-6 py-3 bg-gray-100 text-purple-700 font-semibold rounded-lg shadow hover:bg-gray-200 transition">
-              College
-            </button>
-          </div>
+          <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg shadow-md hover:opacity-90 transition">
+          Commencer votre transition numérique
+        </button>
+        <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
+          Cours Populaires
+        </h2>
         </div>
 
         {/* Second Child: Grid of Cards */}

@@ -6,15 +6,17 @@ import RegisterNow from '../components/RegisterNow'
 import MentorSection from '../components/MentorSection'
 import SubscribeNow from '../components/SubscribeNow'
 import Footer from '../components/Footer'
+import AboutSection from '../components/AboutSection'
+import EducationSection from '../components/education'
 
 
 const LandingPage = () => {
   return ( 
     <>
        <Hero></Hero>
-       <Courses></Courses>
+       <AboutSection></AboutSection>
+       <EducationSection></EducationSection>
        <Lessons></Lessons>
-       <RegisterNow></RegisterNow>
        <MentorSection></MentorSection>
        <SubscribeNow></SubscribeNow>
        <Footer></Footer>

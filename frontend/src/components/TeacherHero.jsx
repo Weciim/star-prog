@@ -13,7 +13,7 @@ const TeacherHero = () => {
         backgroundSize: "cover", // Optional
       }}>
     <Navbar></Navbar>
-    <section className="flex flex-col md:flex-row items-center  px-6  md:px-16 lg:px-24 relative"   >
+    <section className="flex flex-col md:flex-row items-center  px-6  md:px-16 lg:px-24 relative "   >
       {/* Left Section */}
       <div className="flex flex-col items-start space-y-6 md:w-1/2 p-20">
         <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">

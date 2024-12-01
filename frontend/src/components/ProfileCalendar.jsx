@@ -74,7 +74,7 @@ const ProfileCalendar = () => {
   };
 
   return (
-    <div className="bg-white-400 rounded-lg shadow-md px-48 py-8">
+    <div className=" rounded-lg shadow-md px-48 py-8 bg-[#EDE9F2]">
       {/* Styled Header */}
       <div className="bg-gradient-to-r from-purple-400 to-purple-600 text-white mx-auto py-2 rounded-md shadow-sm w-[30%] text-center mb-12">
         <h2 className="text-3xl font-merriweather">Mon Calendrier</h2>

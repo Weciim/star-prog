@@ -3,7 +3,7 @@ import instructor from '../assets/images/instructor.png'
 
 const ForInstructors = () => {
   return (
-    <section className="py-16 px-6 bg-[#EDE9F2] text-center">
+    <section className="py-16 px-6 bg-[#f5effb] text-center">
       {/* Title */}
       <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
         C’est quoi <span className="text-blue-500">?</span>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Totc = () => {
   return (
-    <section className="py-12 px-6 bg-[#EDE9F2]">
+    <section className="py-12 px-6 bg-[#f5effb]">
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       {/* Left Content */}
       <div className='relative'>

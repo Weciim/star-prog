@@ -8,7 +8,7 @@ import profile6 from '../assets/icons/profile6.png'
 
 const SubscribeNow = () => {
   return (
-    <section className="bg-[#EDE9F2] py-12 px-6">
+    <section className="bg-[#f5effb] py-12 px-6">
       <div className="relative max-w-7xl mx-auto bg-gradient-to-r from-purple-700 to-purple-900 text-white rounded-lg p-16 lg:p-24">
         {/* Decorative Images */}
         <div className="absolute top-[10%] left-[4%]">

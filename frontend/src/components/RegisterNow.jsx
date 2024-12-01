@@ -6,7 +6,7 @@ import java from '../assets/icons/java.png'
 
 const RegisterNow = () => {
   return (
-    <section className="bg-[#EDE9F2] py-12 px-6">
+    <section className="bg-[#f5effb] py-12 px-6">
       <div className=" max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         {/* Left Column: Text and Buttons */}
         <div className="flex flex-col items-start text-left lg:w-1/2 space-y-6">

@@ -5,7 +5,7 @@ import teacher3 from '../assets/images/teacher3.png'; // Replace with actual ima
 
 const MentorSection = () => {
   return (
-    <section className="py-16 px-6 bg-[#EDE9F2]">
+    <section className="py-16 px-6 bg-[#f5effb]">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       {/* Text Section */}
       <div>

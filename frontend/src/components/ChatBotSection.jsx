@@ -3,7 +3,7 @@ import ChatImage from '../assets/images/chatImage.png'; // Replace with the actu
 
 const ChatbotSection = () => {
   return (
-    <section className="py-16 px-6 bg-[#EDE9F2]">
+    <section className="py-16 px-6 bg-[#f5effb]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
         {/* Chatbox */}
         <div className="relative w-full md:w-1/2 bg-gray-100 rounded-xl shadow-lg p-6">

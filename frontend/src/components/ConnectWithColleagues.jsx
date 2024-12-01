@@ -9,7 +9,7 @@ import call3 from '../assets/icons/call3.png'
 
 const ConnectWithColleagues = () => {
   return (
-    <section className="py-16 px-6 bg-[#EDE9F2] flex flex-col items-center">
+    <section className="py-16 px-6 bg-[#f5effb] flex flex-col items-center">
       {/* Title */}
       <h2 className="text-center text-2xl md:text-4xl font-bold text-[#2F327D]">
         Connectez-vous avec vos collègues

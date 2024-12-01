@@ -7,7 +7,7 @@ import playbtn from "../assets/icons/playbtn.png";
 
 const Courses = () => {
   return (
-    <section className="bg-[#EDE9F2] py-12 px-6">
+    <section className="bg-[#f5effb] py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         {/* First Div: Heading, Paragraph, and Button */}
         <div className="text-center max-w-2xl mx-auto">

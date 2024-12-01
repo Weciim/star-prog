@@ -3,7 +3,7 @@ import mentor from '../assets/images/mentor.png'
 
 const MentorSection = () => {
   return (
-    <section className="bg-[#EDE9F2] py-12 px-6">
+    <section className="bg-[#f5effb] py-12 px-6">
     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
       {/* Left Child: Image */}
       <div className="lg:w-1/2 flex justify-center relative">

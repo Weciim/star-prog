@@ -2,7 +2,7 @@ import React from 'react';
 
 const Lessons = () => {
   return (
-    <section className="bg-[#EDE9F2] py-12 px-6">
+    <section className="bg-[#f5effb] py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col gap-28">
         {/* First Child: Title, Paragraph, and Buttons */}
         <div className="flex flex-col items-center text-center gap-6">

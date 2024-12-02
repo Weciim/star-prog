@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import teacher from "../assets/images/teacher.png";
+import { toast , ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterTeacher = () => {
   // State for form inputs
@@ -11,6 +14,7 @@ const RegisterTeacher = () => {
     institution: "",
     subjects: "",
   });
+  const navigate = useNavigate()
 
   // State for messages
   const [message, setMessage] = useState("");
@@ -30,7 +34,10 @@ const RegisterTeacher = () => {
       });
 
       // Display success message
-      setMessage("Registration successful!");
+      toast.success("Registered successfully!");
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
 
       // Clear the form
       setFormData({

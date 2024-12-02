@@ -37,11 +37,18 @@ const LoginForm = () => {
 
       // Display success toast message
       toast.success("Login successful!");
-     
+      
+      console.log(user.role)
 
       // Redirect to homepage after a short delay
       setTimeout(() => {
-        navigate('/profile');
+        if (user.role === "Teacher") {
+          navigate("/profile"); // Redirect to Teacher profile page
+        } else if (user.role === "Mentor") {
+          navigate("/mentor"); // Redirect to Mentor page
+        } else {
+          toast.error("Unknown user role!");
+        }
       }, 1000);
     } catch (error) {
       // Display error message

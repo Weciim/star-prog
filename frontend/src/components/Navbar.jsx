@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Link } from 'react-router-dom';
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -93,16 +93,34 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-6 justify-between gap-16">
-          {["Accueil", "Cours", "Contact", "Brainmate"].map((link, i) => (
             <motion.a
-              href="/shop"
-              key={i}
+              href="/"
               className="hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
             >
-              {link}
+              Accueil
             </motion.a>
-          ))}
+            <motion.a
+              href="/courses"
+              className="hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              Cours
+            </motion.a>
+            <motion.a
+              href="/contact"
+              className="hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              Contact
+            </motion.a>
+            <motion.a
+              href="/BrainMate"
+              className="hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              BrainMate
+            </motion.a>
         </div>
 
         {/* Icons Section */}
@@ -126,20 +144,22 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <motion.button
+              <motion.a
+              href="/login"
                 onClick={() => navigate("/login")}
                 className="px-4 py-2 bg-[#F4EFFA] text-purple-700 border border-purple-700 rounded-full hover:bg-purple-100"
                 variants={bounceVariants}
               >
                 Connexion
-              </motion.button>
-              <motion.button
+              </motion.a>
+              <motion.a
+              href="/RegisterAsT"
                 onClick={() => navigate("/register")}
                 className="px-4 py-2 bg-[#C8B1E4] text-black rounded-full hover:opacity-90"
                 variants={bounceVariants}
               >
                 S'inscrire
-              </motion.button>
+              </motion.a>
             </>
           )}
         </div>

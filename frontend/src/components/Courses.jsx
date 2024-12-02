@@ -1,68 +1,111 @@
-import React from "react";
-import teacher from "../assets/images/courseimg.png";
-import kid from "../assets/images/kid.png";
-import speaker from "../assets/icons/speaker.png";
-import live from "../assets/icons/live.png";
-import playbtn from "../assets/icons/playbtn.png";
+import React from 'react';
+import courseimg from '../assets/images/course.png';
+import { motion } from 'framer-motion';
 
 const Courses = () => {
+  const courses = [
+    {
+      title: "AI 101 pour enseignants",
+      description: "Introduction aux fondamentaux de l’intelligence artificielle qui vous fournira les connaissances de base pour comprendre...",
+      link: "Voir plus",
+    },
+    {
+      title: "Démonstration d’outil d’IA",
+      description: "Differentiating Class Materials With Drift",
+      link: "See more",
+    },
+    {
+      title: "Construire un noyau",
+      description: "Expliquez comment le changement du nombre de neutrons du proton affecte le numéro atomique et les espaces isotopiques.",
+      link: "See more",
+    },
+    {
+      title: "Laboratoire de données sur les projectiles",
+      description: "Visualisez et écoutez les données résultant du caractère aléatoire de la vitesse et de l’angle de lancement dans le monde réel.",
+      link: "Voir plus",
+    },
+    {
+      title: "Laboratoire électromagnétique de Faraday",
+      description: "Prédire la direction du champ magnétique pour différents emplacements autour d’une barre aimantée et d’un électroaimant.",
+      link: "Voir plus",
+    },
+    {
+      title: "Aiment et boussole",
+      description: "Prédire la direction du champ magnétique pour différents emplacements autour d’une barre aimantée et d’un électroaimant.",
+      link: "Voir plus",
+    },
+    {
+      title: "Addition de vecteurs",
+      description: "Organiser des vecteurs graphiquement pour représenter l’addition ou la soustraction de vecteurs.",
+      link: "Voir plus",
+    },
+    {
+      title: "Ajustement de courbe",
+      description: "Expliquez comment la plage, l’incertitude et le nombre de points de données affectent le coefficient de corrélation et le chi carré.",
+      link: "Voir plus",
+    },
+  ];
+
+  // Framer Motion Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4, // Delay between children animations
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section className="bg-[#f5effb] py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col gap-8">
-        {/* First Div: Heading, Paragraph, and Button */}
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-merriweather font-bold text-purple-900 mb-4">
-            High quality video, audio <br /> & live classes
-          </h2>
-          <p className="text-gray-600 text-lg mb-6">
-            High-definition video is video of higher resolution and quality than
-            standard-definition. While there is no standardized meaning for
-            high-definition, generally any video image with considerably more
-            than 480 vertical scan lines or 576 vertical lines is considered
-            high-definition.
-          </p>
-          <button className="bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition duration-300">
-            Visit Courses
+    <section className="bg-[#f5effb] py-16">
+      <div className="container mx-auto">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true, amount: 0.3 }} // Trigger animation when visible
+        >
+          {courses.map((course, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-lg shadow-lg overflow-hidden transition hover:shadow-xl p-4"
+              variants={itemVariants} // Apply animation to each item
+            >
+              <img
+                src={courseimg}
+                alt={course.title}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  {course.title}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {course.description}
+                </p>
+                <a
+                  href="/courses/1"
+                  className="text-purple-600 font-semibold hover:underline"
+                >
+                  {course.link}
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* View All Button */}
+        <div className="text-center mt-8">
+          <button className="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition">
+            Voir tout
           </button>
-        </div>
-
-        {/* Second Div: Video and Features Section */}
-        <div className="flex flex-col gap-8">
-          {/* Video Section */}
-          <div className="relative bg-white shadow-lg p-5 rounded-lg overflow-hidden mx-auto max-w-4xl">
-            <img src={teacher} alt="Live Class" className="w-full h-full" />
-            {/* Small Floating Image */}
-            <div className="absolute bottom-8 left-8 bg-white p-2 shadow-md rounded-lg">
-              <img src={kid} alt="Child" className="w-[120px] h-auto rounded-md" />
-            </div>
-          </div>
-
-          {/* Features Section */}
-          <div className="flex flex-wrap justify-center gap-6">
-            {/* Feature: Audio Classes */}
-            <div className="flex items-center bg-white shadow-md rounded-lg px-6 py-4 space-x-4">
-              <div className="bg-[#FFF4F2] p-4 rounded-lg flex items-center justify-center">
-                <img src={speaker} alt="Volume Icon" className="w-6 h-6" />
-              </div>
-              <p className="font-semibold text-gray-800">Audio Classes</p>
-            </div>
-
-            {/* Feature: Live Classes */}
-            <div className="flex items-center bg-white shadow-md rounded-lg px-6 py-4 space-x-4">
-              <div className="bg-[#F8F2FF] p-4 rounded-lg flex items-center justify-center">
-                <img src={live} alt="Live Icon" className="w-6 h-6" />
-              </div>
-              <p className="font-semibold text-gray-800">Live Classes</p>
-            </div>
-
-            {/* Feature: Recorded Classes */}
-            <div className="flex items-center bg-white shadow-md rounded-lg px-6 py-4 space-x-4">
-              <div className="bg-[#E5FFF3] p-4 rounded-lg flex items-center justify-center">
-                <img src={playbtn} alt="Play Icon" className="w-6 h-6" />
-              </div>
-              <p className="font-semibold text-gray-800">Recorded Classes</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

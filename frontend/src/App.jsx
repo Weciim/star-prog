@@ -4,6 +4,11 @@ import Login from "./pages/Login";
 import Tregister from "./pages/Tregister";
 import Mregister from "./pages/Mregister";
 import UserProfile from "./pages/TeacherProfile";
+import CoursesPage from "./pages/CoursesPage";
+import SingleCoursePage from "./pages/SingleCoursePage";
+import MentorProfile from "./pages/MentorProfile";
+
+
 
 export default function App() {
   return (
@@ -14,6 +19,9 @@ export default function App() {
           <Route path="/RegisterAsT" element={<Tregister />} />
           <Route path="/RegisterAsM" element={<Mregister />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/mentor" element={<MentorProfile />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/courses/1" element={<SingleCoursePage />} />
         </Routes>
     </Router>
   );

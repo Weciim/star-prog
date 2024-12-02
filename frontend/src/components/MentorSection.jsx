@@ -1,5 +1,6 @@
 import React from 'react'
 import mentor from '../assets/images/mentor.png'
+import { Link } from 'react-router-dom';
 
 const MentorSection = () => {
   return (
@@ -26,9 +27,11 @@ const MentorSection = () => {
           than standard-definition. While there is no standardized meaning
           for high-definition, generally any video.
         </p>
+        <Link to='/RegisterAsM'>
         <button className="px-6 py-3 bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition">
-          Career Information
+          Register As Mentor
         </button>
+        </Link>
       </div>
     </div>
   </section>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Logo from "../assets/images/Logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast ,ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Navbar() {
@@ -44,14 +45,9 @@ export default function Navbar() {
   // Handle Logout
   const handleLogout = async () => {
     try {
-      // Optional: Call the backend logout API
       await axios.post("http://localhost:5000/api/auth/logout");
-  
-      // Clear token and userId from local storage
       localStorage.removeItem("token");
       localStorage.removeItem("userId");
-  
-      // Trigger toast success message
       toast.success("Logout successful!");
       setTimeout(() => {
         navigate('/login');
@@ -62,10 +58,28 @@ export default function Navbar() {
     }
   };
 
+  // Framer Motion Variants for Bounce Effect
+  const bounceVariants = {
+    hidden: { y: -100, opacity: 0 }, // Start from above the screen
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring", // Use spring for bounce
+        stiffness: 100, // Adjust stiffness for more/less bounce
+        damping: 8, // Controls how much the bounce settles
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <nav
+    <motion.nav
       className="text-white px-6 py-4 font-merriweather font-light"
       style={{ background: backgroundStyle }}
+      initial="hidden"
+      animate="visible"
+      variants={bounceVariants} // Apply bounce animation to the entire navbar
     >
       <div className="mx-auto flex justify-between">
         {/* Logo Section */}
@@ -79,56 +93,57 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-6 justify-between gap-16">
-          <a href="/shop" className="hover:text-gray-300">
-            Accueil
-          </a>
-          <a href="/shop" className="hover:text-gray-300">
-            Cours
-          </a>
-          <a href="/shop" className="hover:text-gray-300">
-            Contact
-          </a>
-          <a href="/shop" className="hover:text-gray-300">
-            Brainmate
-          </a>
-          {/* Other Navigation Items */}
+          {["Accueil", "Cours", "Contact", "Brainmate"].map((link, i) => (
+            <motion.a
+              href="/shop"
+              key={i}
+              className="hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              {link}
+            </motion.a>
+          ))}
         </div>
 
         {/* Icons Section */}
         <div className="flex items-center mx-16 justify-between gap-5">
           {userName ? (
             <>
-              <button
+              <motion.button
                 onClick={handleLogout}
                 className="px-4 py-2 bg-[#F4EFFA] text-purple-700 border border-purple-700 rounded-full hover:bg-purple-100"
+                variants={bounceVariants}
               >
                 Logout
-              </button>
-              <a
+              </motion.button>
+              <motion.a
                 href="/profile"
                 className="px-4 py-2 bg-[#C8B1E4] text-black rounded-full hover:opacity-90"
+                variants={bounceVariants}
               >
                 {userName}
-              </a>
+              </motion.a>
             </>
           ) : (
             <>
-              <button
+              <motion.button
                 onClick={() => navigate("/login")}
                 className="px-4 py-2 bg-[#F4EFFA] text-purple-700 border border-purple-700 rounded-full hover:bg-purple-100"
+                variants={bounceVariants}
               >
                 Connexion
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => navigate("/register")}
                 className="px-4 py-2 bg-[#C8B1E4] text-black rounded-full hover:opacity-90"
+                variants={bounceVariants}
               >
                 S'inscrire
-              </button>
+              </motion.button>
             </>
           )}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

@@ -10,7 +10,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const backgroundStyle =
-    location.pathname === "/" || location.pathname === "/profile"
+    location.pathname === "/" || location.pathname === "/profile" || location.pathname === "/BrainMate"
       ? "transparent"
       : "linear-gradient(90deg, #532B88 0%, #2F184B 100%)";
 

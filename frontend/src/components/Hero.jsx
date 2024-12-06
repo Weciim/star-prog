@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <div className='bg-cover bg-center min-h-screen' style={{  backgroundImage: `url(${Herbg})`}}> 
     <Navbar></Navbar>
-    <section className=" text-white py-12">
+    <section className=" text-white ">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
         {/* Left Content */}
         <div className="md:w-1/2 text-center md:text-left   md:ml-12 ">

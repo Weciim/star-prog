@@ -73,9 +73,9 @@ const RegisterMentor = () => {
 
       {/* Right Section: Form */}
       <div className="md:w-1/2 flex flex-col items-center justify-center px-6 md:px-12 space-y-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-purple-900">logo</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-purple-900">Eduvi</h1>
         <h2 className="text-xl md:text-2xl font-semibold text-purple-700">
-          Bienvenue à ...!
+          Bienvenue à {formData.name}!
         </h2>
 
         {/* Form */}

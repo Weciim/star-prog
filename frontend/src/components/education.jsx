@@ -8,7 +8,7 @@ const EducationSection = () => {
 
         {/* Image Section */}
         <div className="relative  mb-8">
-          <div className="relative bg-white shadow-lg rounded-2xl overflow-hidden">
+          <div className="relative bg-white shadow-lg rounded-2xl p-8 overflow-hidden">
             <img
               src={educationImage}
               alt="Education"

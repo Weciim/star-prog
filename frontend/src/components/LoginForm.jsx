@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 
 const LoginForm = () => {
@@ -84,9 +85,11 @@ const LoginForm = () => {
           <button className="px-6 py-3 bg-purple-700 text-white rounded-lg shadow-md hover:opacity-90">
             Se connecter
           </button>
+          <Link to='/RegisterAsT'>
           <button className="px-6 py-3 bg-white text-purple-700 border border-purple-700 rounded-lg shadow-md hover:bg-purple-100">
-            S'inscrire
+            S'inscrire 
           </button>
+          </Link>
         </div>
 
         {/* Description */}

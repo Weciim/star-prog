@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import teacher from "../assets/images/teacher.png";
+import teacher from "../assets/images/studente.jpg";
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from "react-router-dom";
 
-const RegisterTeacher = () => {
+const SRegister = () => {
   // State for form inputs
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     institution: "",
-    subjects: "",
+    filière:"",
+    niveau: "",
   });
-  const navigate = useNavigate()
 
   // State for messages
   const [message, setMessage] = useState("");
@@ -26,40 +25,15 @@ const RegisterTeacher = () => {
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5000/api/auth/register_teacher", {
-        ...formData,
-        role: "Teacher", // Set the role to Teacher
-      });
 
-      // Display success message
-      toast.success("Registered successfully!");
-      setTimeout(() => {
-        navigate('/login');
-      }, 1000);
 
-      // Clear the form
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
-        institution: "",
-        subjects: "",
-      });
 
-      console.log(response.data);
-    } catch (error) {
-      // Display error message
-      setMessage(error.response?.data?.message || "Something went wrong!");
-    }
-  };
+
 
   return (
     <section className="flex flex-col md:flex-row items-stretch bg-gradient-to-b from-purple-50 to-purple-100 p-6 lg:px-56">
       {/* Left Section: Image */}
-      <div className="md:w-1/2 h-full flex items-center justify-center">
+      <div className="md:w-1/2 flex items-center justify-center p-5">
         <img
           src={teacher}
           alt="Login Illustration"
@@ -77,19 +51,6 @@ const RegisterTeacher = () => {
           Bienvenue à {formData.name}!
         </h2>
 
-        <div className="flex space-x-4">
-          <Link to='/login'>
-          <button className="px-6 py-3 bg-purple-700 text-white rounded-lg shadow-md hover:opacity-90">
-            Se connecter
-          </button>
-          </Link>
-          <Link to='/RegisterAsM'>
-          <button className="px-6 py-3 bg-white text-purple-700 border border-purple-700 rounded-lg shadow-md hover:bg-purple-100">
-            S'inscrire en tant que Mentor 
-          </button>
-          </Link>
-        </div>
-
         {/* Display Message */}
         {message && (
           <p className={`text-center text-lg font-semibold ${message === "Registration successful!" ? "text-green-500" : "text-red-500"}`}>
@@ -98,7 +59,7 @@ const RegisterTeacher = () => {
         )}
 
         {/* Form */}
-        <form className="w-full space-y-6" onSubmit={handleSubmit}>
+        <form className="w-full space-y-6">
           {/* Name Input */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -150,24 +111,43 @@ const RegisterTeacher = () => {
           {/* Subjects Input */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Matière enseignée
+            filière
             </label>
             <select
               name="subjects"
-              value={formData.subjects}
+              value={formData.filière}
               onChange={handleChange}
               className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
               required
             >
               <option value="" disabled>
-                Sélectionnez une matière
+                Sélectionnez votre filière
               </option>
-              <option value="Mathematics">Mathématiques</option>
-              <option value="Science">Sciences</option>
-              <option value="Literature">Littérature</option>
-              <option value="History">Histoire</option>
-              <option value="Language">Langues</option>
-              <option value="Other">Autre</option>
+              <option value="1ère année">Mathématiques</option>
+              <option value="2ème année">Sciences expérimentales</option>
+              <option value="3ème année">Techniques</option>
+              <option value="Bac">Lettres</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Niveau
+            </label>
+            <select
+              name="niveau"
+              value={formData.niveau}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-700"
+              required
+            >
+              <option value="" disabled>
+                Sélectionnez votre niveau
+              </option>
+              <option value="1ère année">1ère année</option>
+              <option value="2ème année">2ème année</option>
+              <option value="3ème année">3ème année</option>
+              <option value="Bac">Bac</option>
             </select>
           </div>
 
@@ -202,4 +182,4 @@ const RegisterTeacher = () => {
   );
 };
 
-export default RegisterTeacher;
+export default SRegister;

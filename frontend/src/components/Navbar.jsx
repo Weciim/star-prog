@@ -121,6 +121,13 @@ export default function Navbar() {
             >
               BrainMate
             </motion.a>
+            <motion.a
+              href="/Tools"
+              className="hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              Tools
+            </motion.a>
         </div>
 
         {/* Icons Section */}

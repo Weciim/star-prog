@@ -8,7 +8,9 @@ import CoursesPage from "./pages/CoursesPage";
 import SingleCoursePage from "./pages/SingleCoursePage";
 import MentorProfile from "./pages/MentorProfile";
 import BrainMate from "./pages/BrainMate";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
+import Tools from "./pages/TeacherToolsDashboard"
+import TeacherToolsDashboard from "./pages/TeacherToolsDashboard";
 
 
 
@@ -26,6 +28,7 @@ export default function App() {
           <Route path="/courses/1" element={<SingleCoursePage />} />
           <Route path="/BrainMate" element={<BrainMate />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/tools" element={<TeacherToolsDashboard />} />
         </Routes>
     </Router>
   );

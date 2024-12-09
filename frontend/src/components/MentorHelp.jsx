@@ -27,7 +27,7 @@ const MentorSection = () => {
       {/* Design Section */}
       <div className="relative bg-gradient-to-r from-purple-100 to-white rounded-lg shadow-md p-24">
         <h3 className="text-center text-gray-800 font-bold text-xl mb-6">
-          Meet Our Mentors
+          Decouvrir nos experts
         </h3>
 
         {/* Mentor Profiles */}

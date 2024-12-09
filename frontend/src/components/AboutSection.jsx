@@ -18,7 +18,7 @@ const AboutSection = () => {
           engager vos élèves et améliorer l'apprentissage. La technologie
           transforme le paysage éducatif, et notre mission est d'accompagner
           les professeurs dans cette transition.{" "}
-          <span className="font-semibold">Nom de la plateforme</span> vous
+          <span className="font-semibold">Talimis</span> vous
           offre des outils pratiques, des formations spécialisées, et un
           accompagnement personnalisé pour intégrer efficacement la technologie
           dans vos méthodes d'enseignement.

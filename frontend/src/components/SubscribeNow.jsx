@@ -10,66 +10,66 @@ const SubscribeNow = () => {
   return (
     <section className="bg-[#f5effb] py-12 px-6">
       <div className="relative max-w-7xl mx-auto bg-gradient-to-r from-purple-700 to-purple-900 text-white rounded-lg p-16 lg:p-24">
-        {/* Decorative Images */}
+        {/* Images décoratives */}
         <div className="absolute top-[10%] left-[4%]">
           <img
             src={profile1}
-            alt="Profile 1"
+            alt="Profil 1"
             className="w-12 h-12 rounded-full border-2 border-white"
           />
         </div>
         <div className="absolute top-[10%] right-[4%]">
           <img
             src={profile2}
-            alt="Profile 2"
+            alt="Profil 2"
             className="w-12 h-12 rounded-full border-2 border-white"
           />
         </div>
         <div className="absolute top-[40%] left-[12%]">
           <img
             src={profile3}
-            alt="Profile 3"
+            alt="Profil 3"
             className="w-12 h-12 rounded-full border-2 border-white"
           />
         </div>
         <div className="absolute top-[40%] right-[12%]">
           <img
             src={profile4}
-            alt="Profile 4"
+            alt="Profil 4"
             className="w-12 h-12 rounded-full border-2 border-white"
           />
         </div>
         <div className="absolute bottom-[10%] left-[4%]">
           <img
             src={profile5}
-            alt="Profile 5"
+            alt="Profil 5"
             className="w-12 h-12 rounded-full border-2 border-white"
           />
         </div>
         <div className="absolute bottom-[10%] right-[4%]">
           <img
             src={profile6}
-            alt="Profile 6"
+            alt="Profil 6"
             className="w-12 h-12 rounded-full border-2 border-white"
           />
         </div>
 
-        {/* Content */}
+        {/* Contenu */}
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Subscribe To Get Updated on Every New Course
+            Abonnez-vous pour rester informé de chaque nouveau cours
           </h2>
           <p className="text-gray-300 mb-6">
-            20k+ students daily learn with Eduvi. Subscribe for new courses.
+            Plus de 20 000 étudiants apprennent quotidiennement avec Eduvi. Abonnez-vous pour découvrir nos nouveaux cours.
           </p>
           <div className="flex justify-center items-center gap-4">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Entrez votre email"
               className="px-4 py-3 rounded-lg text-gray-700 w-64 focus:outline-none"
             />
             <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition">
-              Subscribe
+              S'abonner
             </button>
           </div>
         </div>

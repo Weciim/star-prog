@@ -11,7 +11,7 @@ const ForInstructors = () => {
 
       {/* Description */}
       <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-        TOTC est une plateforme qui permet aux enseignants de créer des cours
+        Talimis est une plateforme qui permet aux enseignants de créer des cours
         en ligne, de stocker les supports de cours, de gérer les devoirs, les
         quiz et les examens, de suivre les dates d’échéance, d’évaluer les
         résultats et de fournir des retours aux étudiants, le tout en un seul

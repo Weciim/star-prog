@@ -3,9 +3,8 @@ import { BookOpen, FileText, ClipboardList, GraduationCap, Languages, BarChart }
 import Navbar from '../components/Navbar';
 import SubscribeNow from '../components/SubscribeNow';
 import Footer from '../components/Footer';
-import { motion } from "framer-motion";
 
-// Main Dashboard Component
+// Composant principal du tableau de bord
 const TeacherToolsDashboard = () => {
   const [activeSection, setActiveSection] = useState('quizzes');
 
@@ -29,18 +28,18 @@ const TeacherToolsDashboard = () => {
   return (
     <>
       <Navbar />
-      {/* Main Layout */}
+      {/* Mise en page principale */}
       <div className="flex">
-        {/* Sidebar Navigation */}
+        {/* Barre de navigation latérale */}
         <div className="w-64 bg-purple-100 shadow-md p-4">
-          <h1 className="text-2xl font-bold mb-6 text-center text-purple-800">Teacher Tools</h1>
+          <h1 className="text-2xl font-bold mb-6 text-center text-purple-800">Outils pour Enseignants</h1>
           <nav>
             {[ 
-              { name: 'Quizzes', icon: ClipboardList, key: 'quizzes' },
-              { name: 'Resumés', icon: FileText, key: 'resumees' },
-              { name: 'Grading', icon: BarChart, key: 'grading' },
-              { name: 'Translation', icon: Languages, key: 'translation' },
-              { name: 'Learning Analytics', icon: GraduationCap, key: 'analytics' }
+              { name: 'Quiz', icon: ClipboardList, key: 'quizzes' },
+              { name: 'Resumé', icon: FileText, key: 'resumees' },
+              { name: 'Évaluation', icon: BarChart, key: 'grading' },
+              { name: 'Traduction', icon: Languages, key: 'translation' },
+              { name: 'Analyse de l\'apprentissage', icon: GraduationCap, key: 'analytics' }
             ].map(({ name, icon: Icon, key }) => (
               <button 
                 key={key}
@@ -58,7 +57,7 @@ const TeacherToolsDashboard = () => {
           </nav>
         </div>
 
-        {/* Main Content Area */}
+        {/* Zone de contenu principal */}
         <div className="flex-1 p-8">
           {renderActiveSection()}
         </div>
@@ -70,7 +69,7 @@ const TeacherToolsDashboard = () => {
   );
 };
 
-// Quiz Management Component
+// Composant de gestion des quiz
 const QuizManagement = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [newQuiz, setNewQuiz] = useState({ title: '', subject: '' });
@@ -88,18 +87,18 @@ const QuizManagement = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6 text-purple-800">Quiz Management</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-purple-800">Gestion des Quiz</h2>
       
       <div className="bg-white shadow-md rounded-lg p-6">
         <div className="grid grid-cols-2 gap-4 mb-4">
           <input 
-            placeholder="Quiz Title"
+            placeholder="Titre du Quiz"
             value={newQuiz.title}
             onChange={(e) => setNewQuiz({...newQuiz, title: e.target.value})}
             className="border border-purple-300 p-2 rounded focus:ring-2 focus:ring-purple-500 focus:outline-none"
           />
           <input 
-            placeholder="Subject"
+            placeholder="Matière"
             value={newQuiz.subject}
             onChange={(e) => setNewQuiz({...newQuiz, subject: e.target.value})}
             className="border border-purple-300 p-2 rounded focus:ring-2 focus:ring-purple-500 focus:outline-none"
@@ -109,12 +108,12 @@ const QuizManagement = () => {
           onClick={createQuiz}
           className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors"
         >
-          Create New Quiz
+          Créer un nouveau Quiz
         </button>
 
         {quizzes.length > 0 && (
           <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-4 text-purple-700">Existing Quizzes</h3>
+            <h3 className="text-xl font-semibold mb-4 text-purple-700">Quiz existants</h3>
             <ul>
               {quizzes.map(quiz => (
                 <li 
@@ -123,8 +122,8 @@ const QuizManagement = () => {
                 >
                   <span className="text-purple-800">{quiz.title} - {quiz.subject}</span>
                   <div>
-                    <button className="text-purple-600 mr-2 hover:text-purple-800">Edit</button>
-                    <button className="text-purple-600 hover:text-purple-800">Delete</button>
+                    <button className="text-purple-600 mr-2 hover:text-purple-800">Modifier</button>
+                    <button className="text-purple-600 hover:text-purple-800">Supprimer</button>
                   </div>
                 </li>
               ))}
@@ -135,6 +134,7 @@ const QuizManagement = () => {
     </div>
   );
 };
+
 const ResumeUploader = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
@@ -145,7 +145,7 @@ const ResumeUploader = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6 text-purple-800">Lesson Resumés</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-purple-800">CV des Leçons</h2>
       
       <div className="bg-white shadow-md rounded-lg p-6">
         <input 
@@ -162,7 +162,7 @@ const ResumeUploader = () => {
 
         {uploadedFiles.length > 0 && (
           <div>
-            <h3 className="text-xl font-semibold mb-4 text-purple-700">Uploaded Files</h3>
+            <h3 className="text-xl font-semibold mb-4 text-purple-700">Fichiers téléchargés</h3>
             <ul>
               {uploadedFiles.map((file, index) => (
                 <li 
@@ -170,7 +170,7 @@ const ResumeUploader = () => {
                   className="flex justify-between items-center bg-purple-100 p-3 rounded mb-2"
                 >
                   <span className="text-purple-800">{file.name}</span>
-                  <button className="text-purple-600 hover:text-purple-800">Remove</button>
+                  <button className="text-purple-600 hover:text-purple-800">Supprimer</button>
                 </li>
               ))}
             </ul>
@@ -181,25 +181,25 @@ const ResumeUploader = () => {
   );
 };
 
-// Other placeholder components (simplified for brevity)
+// Autres composants fictifs (simplifiés pour la clarté)
 const GradingDashboard = () => (
   <div className="bg-white shadow-md rounded-lg p-6">
-    <h2 className="text-2xl font-semibold mb-6 text-purple-800">Grading Dashboard</h2>
-    <p className="text-purple-700">Grading and student performance tracking features coming soon.</p>
+    <h2 className="text-2xl font-semibold mb-6 text-purple-800">Tableau de bord d'évaluation</h2>
+    <p className="text-purple-700">Les fonctionnalités d'évaluation et de suivi des performances des étudiants arrivent bientôt.</p>
   </div>
 );
 
 const TranslationTool = () => (
   <div className="bg-white shadow-md rounded-lg p-6">
-    <h2 className="text-2xl font-semibold mb-6 text-purple-800">Translation Tool</h2>
-    <p className="text-purple-700">Google Translate-like translation features coming soon.</p>
+    <h2 className="text-2xl font-semibold mb-6 text-purple-800">Outil de Traduction</h2>
+    <p className="text-purple-700">Les fonctionnalités de traduction similaires à Google Translate arrivent bientôt.</p>
   </div>
 );
 
 const LearningAnalytics = () => (
   <div className="bg-white shadow-md rounded-lg p-6">
-    <h2 className="text-2xl font-semibold mb-6 text-purple-800">Learning Analytics</h2>
-    <p className="text-purple-700">Student performance and learning trend analytics coming soon.</p>
+    <h2 className="text-2xl font-semibold mb-6 text-purple-800">Analyse de l'apprentissage</h2>
+    <p className="text-purple-700">Les fonctionnalités de suivi des performances des étudiants et des tendances d'apprentissage arrivent bientôt.</p>
   </div>
 );
 

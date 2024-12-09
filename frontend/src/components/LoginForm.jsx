@@ -77,7 +77,7 @@ const LoginForm = () => {
 
         {/* Welcome Message */}
         <h2 className="text-2xl font-semibold text-purple-700">
-          Bienvenue à ...!
+          Bienvenue à Talimis!
         </h2>
 
         {/* Buttons */}

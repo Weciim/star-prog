@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -95,19 +96,20 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-6 justify-between gap-16">
             <motion.a
               href="/"
-              className="hover:text-gray-300"
+              className="text-lg  hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
             >
               Accueil
             </motion.a>
             <motion.a
               href="/courses"
-              className="hover:text-gray-300"
+              className="text-lg  hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
             >
               Cours
             </motion.a>
             <motion.a
+<<<<<<< HEAD
               href="/outils"
               className="hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
@@ -115,15 +117,29 @@ export default function Navbar() {
               Outils
             </motion.a>
             <motion.a
+=======
+>>>>>>> 47aa7aa189303f106a28e8549b7236077b1a020f
               href="/BrainMate"
-              className="hover:text-gray-300"
+              className="text-lg hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
             >
               BrainMate
             </motion.a>
             <motion.a
+<<<<<<< HEAD
               href="/contact"
               className="hover:text-gray-300"
+=======
+              href="/outils"
+              className="text-lg  hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              Outils
+            </motion.a>
+            <motion.a
+              href="/contact"
+              className="text-lg  hover:text-gray-300"
+>>>>>>> 47aa7aa189303f106a28e8549b7236077b1a020f
               variants={bounceVariants} // Apply bounce effect to individual items
             >
               Contact

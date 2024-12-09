@@ -1,48 +1,54 @@
 import React from 'react';
-import courseimg from '../assets/images/course.png';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import courseimg from '../assets/images/course.png'; // Update this import path
 
 const Courses = () => {
   const courses = [
     {
       title: "AI 101 pour enseignants",
-      description: "Introduction aux fondamentaux de l’intelligence artificielle qui vous fournira les connaissances de base pour comprendre...",
-      link: "Voir plus",
+      description: "Introduction aux fondamentaux de l'intelligence artificielle qui vous fournira les connaissances de base pour comprendre...",
+      link: "https://www.khanacademy.org/college-careers-more/ai-for-education/x68ea37461197a514:unit-teaching-with-ai/x68ea37461197a514:ai-101-for-teachers-lesson/v/ai-101-for-teachers-fireside-chat-with-sal-khan-and-hadi-partovi",
     },
     {
-      title: "Démonstration d’outil d’IA",
+      title: "Démonstration d'outil d'IA",
       description: "Differentiating Class Materials With Drift",
-      link: "See more",
+      link: "https://www.edutopia.org/video/ai-tool-demo-differentiating-class-materials-with-diffit",
     },
     {
       title: "Construire un noyau",
       description: "Expliquez comment le changement du nombre de neutrons du proton affecte le numéro atomique et les espaces isotopiques.",
-      link: "See more",
+      link: "https://phet.colorado.edu/en/simulations/build-a-nucleus",
     },
     {
       title: "Laboratoire de données sur les projectiles",
-      description: "Visualisez et écoutez les données résultant du caractère aléatoire de la vitesse et de l’angle de lancement dans le monde réel.",
-      link: "Voir plus",
+      description: "Visualisez et écoutez les données résultant du caractère aléatoire de la vitesse et de l'angle de lancement dans le monde réel.",
+      link: "https://phet.colorado.edu/en/simulations/projectile-data-lab",
     },
     {
       title: "Laboratoire électromagnétique de Faraday",
-      description: "Prédire la direction du champ magnétique pour différents emplacements autour d’une barre aimantée et d’un électroaimant.",
-      link: "Voir plus",
+      description: "Prédire la direction du champ magnétique pour différents emplacements autour d'une barre aimantée et d'un électroaimant.",
+      link: "https://phet.colorado.edu/en/simulations/faradays-electromagnetic-lab",
     },
     {
       title: "Aiment et boussole",
-      description: "Prédire la direction du champ magnétique pour différents emplacements autour d’une barre aimantée et d’un électroaimant.",
-      link: "Voir plus",
+      description: "Prédire la direction du champ magnétique pour différents emplacements autour d'une barre aimantée et d'un électroaimant.",
+      link: "https://phet.colorado.edu/en/simulations/magnet-and-compass",
     },
     {
       title: "Addition de vecteurs",
-      description: "Organiser des vecteurs graphiquement pour représenter l’addition ou la soustraction de vecteurs.",
-      link: "Voir plus",
+      description: "Organiser des vecteurs graphiquement pour représenter l'addition ou la soustraction de vecteurs.",
+      link: "https://phet.colorado.edu/en/simulations/vector-addition",
     },
     {
       title: "Ajustement de courbe",
-      description: "Expliquez comment la plage, l’incertitude et le nombre de points de données affectent le coefficient de corrélation et le chi carré.",
-      link: "Voir plus",
+      description: "Expliquez comment la plage, l'incertitude et le nombre de points de données affectent le coefficient de corrélation et le chi carré.",
+      link: "https://phet.colorado.edu/en/simulations/curve-fitting",
+    },
+    {
+      title: "imprimante 3D ",
+      description: "Expliquez comment construire une imprimante 3D a la maison.",
+      link: "https://www.youtube.com/watch?v=63Ei-H2gQ48",
     },
   ];
 
@@ -90,12 +96,12 @@ const Courses = () => {
                 <p className="text-sm text-gray-600 mb-4">
                   {course.description}
                 </p>
-                <a
-                  href="/courses/1"
-                  className="text-purple-600 font-semibold hover:underline"
+                <Link
+                  to={course.link}
+                  className="inline-block text-purple-600 font-semibold hover:underline"
                 >
-                  {course.link}
-                </a>
+                  {course.link.includes('fr') ? 'Voir plus' : 'Voir plus'}
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -103,9 +109,12 @@ const Courses = () => {
 
         {/* View All Button */}
         <div className="text-center mt-8">
-          <button className="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition">
+          <Link 
+            to="/courses"
+            className="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition inline-block"
+          >
             Voir tout
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -85,7 +85,7 @@ const ProfileCalendar = () => {
         className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
         onClick={() => setShowModal(true)}
       >
-        Add Event
+        Ajouter un événement
       </button>
 
       {/* Calendar */}
@@ -101,7 +101,7 @@ const ProfileCalendar = () => {
             popup
           />
         ) : (
-          <p className="text-center text-gray-500">No events scheduled.</p>
+          <p className="text-center text-gray-500">Aucun événement programmé.</p>
         )}
       </div>
 
@@ -109,11 +109,11 @@ const ProfileCalendar = () => {
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md">
-            <h3 className="text-xl font-semibold mb-4">Add New Event</h3>
+            <h3 className="text-xl font-semibold mb-4">Ajouter un nouveau événement</h3>
             <form className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Event Title
+                  Titre de l'événement
                 </label>
                 <input
                   type="text"
@@ -127,7 +127,7 @@ const ProfileCalendar = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Start Date & Time
+                Date et heure de début
                 </label>
                 <input
                   type="datetime-local"
@@ -141,7 +141,7 @@ const ProfileCalendar = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  End Date & Time
+                Date et heure de fin
                 </label>
                 <input
                   type="datetime-local"
@@ -155,7 +155,7 @@ const ProfileCalendar = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Event Color
+                Couleur de l'événement
                 </label>
                 <input
                   type="color"
@@ -172,14 +172,14 @@ const ProfileCalendar = () => {
                   className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
                   onClick={() => setShowModal(false)}
                 >
-                  Cancel
+                   Annuler
                 </button>
                 <button
                   type="button"
                   className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
                   onClick={handleAddEvent}
                 >
-                  Add Event
+                  Ajouter un événement
                 </button>
               </div>
             </form>

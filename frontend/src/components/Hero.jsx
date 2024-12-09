@@ -26,7 +26,7 @@ export default function Hero() {
               className="px-4 py-3 flex-grow text-gray-700 focus:outline-none"
             />
             <button className="bg-purple-700 px-6 py-3 mt-1 mb-1 mr-1 rounded-md  text-white font-merriweather">
-              Search
+              chercher
             </button>
           </div>
         </div>

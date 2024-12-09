@@ -4,14 +4,14 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/f
 const Footer = () => {
   return (
     <footer className="bg-[#f5effb] py-12 px-6">
-      {/* Grid Container */}
+      {/* Grille principale */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-        {/* First Column: Logo and Social Media */}
+        {/* Première colonne : Logo et réseaux sociaux */}
         <div className="flex flex-col items-start space-y-4">
           <h3 className="text-2xl font-bold text-purple-900">Eduvi</h3>
           <p className="text-gray-600 text-sm">
             ©2021 Eduvi.co <br />
-            Eduvi is a registered trademark of Eduvi.co
+            Eduvi est une marque déposée d'Eduvi.co
           </p>
           <div className="flex gap-4 mt-2">
             <a href="#" className="text-purple-900 hover:text-purple-700">
@@ -29,50 +29,50 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Second to Fifth Columns: Footer Links */}
+        {/* Deuxième à cinquième colonnes : Liens du pied de page */}
         <div>
-          <h4 className="font-semibold text-purple-900 mb-4">Courses</h4>
+          <h4 className="font-semibold text-purple-900 mb-4">Cours</h4>
           <ul className="space-y-2 text-gray-600">
-            <li><a href="#">Classroom courses</a></li>
-            <li><a href="#">Virtual classroom courses</a></li>
-            <li><a href="#">E-learning courses</a></li>
-            <li><a href="#">Video Courses</a></li>
-            <li><a href="#">Offline Courses</a></li>
+            <li><a href="#">Cours en salle</a></li>
+            <li><a href="#">Cours virtuels</a></li>
+            <li><a href="#">Cours en ligne</a></li>
+            <li><a href="#">Cours vidéo</a></li>
+            <li><a href="#">Cours hors ligne</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold text-purple-900 mb-4">Community</h4>
+          <h4 className="font-semibold text-purple-900 mb-4">Communauté</h4>
           <ul className="space-y-2 text-gray-600">
-            <li><a href="#">Learners</a></li>
-            <li><a href="#">Partners</a></li>
-            <li><a href="#">Developers</a></li>
+            <li><a href="#">Apprenants</a></li>
+            <li><a href="#">Partenaires</a></li>
+            <li><a href="#">Développeurs</a></li>
             <li><a href="#">Transactions</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Teaching Center</a></li>
+            <li><a href="#">Centre pédagogique</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold text-purple-900 mb-4">Quick Links</h4>
+          <h4 className="font-semibold text-purple-900 mb-4">Liens rapides</h4>
           <ul className="space-y-2 text-gray-600">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Professional Education</a></li>
-            <li><a href="#">Courses</a></li>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Éducation professionnelle</a></li>
+            <li><a href="#">Cours</a></li>
             <li><a href="#">Admissions</a></li>
-            <li><a href="#">Testimonial</a></li>
-            <li><a href="#">Programs</a></li>
+            <li><a href="#">Témoignages</a></li>
+            <li><a href="#">Programmes</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold text-purple-900 mb-4">More</h4>
+          <h4 className="font-semibold text-purple-900 mb-4">Plus</h4>
           <ul className="space-y-2 text-gray-600">
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Investors</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#">Presse</a></li>
+            <li><a href="#">Investisseurs</a></li>
+            <li><a href="#">Conditions</a></li>
+            <li><a href="#">Confidentialité</a></li>
+            <li><a href="#">Aide</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>

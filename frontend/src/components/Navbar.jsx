@@ -108,11 +108,11 @@ export default function Navbar() {
               Cours
             </motion.a>
             <motion.a
-              href="/contact"
+              href="/outils"
               className="hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
             >
-              Contact
+              Outils
             </motion.a>
             <motion.a
               href="/BrainMate"
@@ -120,6 +120,13 @@ export default function Navbar() {
               variants={bounceVariants} // Apply bounce effect to individual items
             >
               BrainMate
+            </motion.a>
+            <motion.a
+              href="/contact"
+              className="hover:text-gray-300"
+              variants={bounceVariants} // Apply bounce effect to individual items
+            >
+              Contact
             </motion.a>
         </div>
 

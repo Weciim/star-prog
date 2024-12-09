@@ -109,7 +109,6 @@ export default function Navbar() {
               Cours
             </motion.a>
             <motion.a
-<<<<<<< HEAD
               href="/outils"
               className="hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
@@ -117,8 +116,6 @@ export default function Navbar() {
               Outils
             </motion.a>
             <motion.a
-=======
->>>>>>> 47aa7aa189303f106a28e8549b7236077b1a020f
               href="/BrainMate"
               className="text-lg hover:text-gray-300"
               variants={bounceVariants} // Apply bounce effect to individual items
@@ -126,20 +123,8 @@ export default function Navbar() {
               BrainMate
             </motion.a>
             <motion.a
-<<<<<<< HEAD
               href="/contact"
               className="hover:text-gray-300"
-=======
-              href="/outils"
-              className="text-lg  hover:text-gray-300"
-              variants={bounceVariants} // Apply bounce effect to individual items
-            >
-              Outils
-            </motion.a>
-            <motion.a
-              href="/contact"
-              className="text-lg  hover:text-gray-300"
->>>>>>> 47aa7aa189303f106a28e8549b7236077b1a020f
               variants={bounceVariants} // Apply bounce effect to individual items
             >
               Contact

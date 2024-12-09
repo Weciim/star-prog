@@ -90,7 +90,7 @@ export default function Navbar() {
             alt="Eduvi Logo"
             className="h-8"
           />
-          <h1 className="ml-3 text-2xl  hover:text-gray-300">Talimis</h1>
+          <h1 className="ml-3 text-xl  hover:text-gray-300">Talimis</h1>
         </div>
 
         {/* Navigation Links */}

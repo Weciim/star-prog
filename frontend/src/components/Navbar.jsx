@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Logo from "../assets/images/Logo.png";
+import Logo from "../assets/images/talimis.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
@@ -93,7 +93,8 @@ export default function Navbar() {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6 justify-between gap-16">
+        <div className="hidden md:flex space-x-6 justify-between
+        items-center gap-16">
             <motion.a
               href="/"
               className="text-lg  hover:text-gray-300"

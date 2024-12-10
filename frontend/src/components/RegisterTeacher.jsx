@@ -5,6 +5,7 @@ import teacher from "../assets/images/teacher.png";
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
+import dark from '../assets/images/dark.png'
 
 const RegisterTeacher = () => {
   // State for form inputs
@@ -70,7 +71,7 @@ const RegisterTeacher = () => {
       {/* Right Section: Form */}
       <div className="md:w-1/2 flex flex-col items-center justify-center px-6 md:px-12 space-y-6">
         {/* Logo */}
-        <h1 className="text-3xl md:text-4xl font-bold text-purple-900">Eduvi</h1>
+        <img src={dark} className='h-20' alt="" />
 
         {/* Welcome Message */}
         <h2 className="text-xl md:text-2xl font-semibold text-purple-700">

@@ -5,7 +5,7 @@ import connectDB from './db.js'
 import courseRoutes from './routes/courseRoutes.js'
 import teacherRoutes from './routes/teacherRoutes.js'
 import authRoutes from './routes/authRoutes.js'
-
+import conversationRoutes from './routes/conversationRoutes.js';
 
 dotenv.config()
 
@@ -33,6 +33,7 @@ app.use("/api/teachers", teacherRoutes);
 // auth routes
 app.use("/api/auth", authRoutes);
 
+app.use("/api/convo",conversationRoutes);
 
 app.listen(port , ()=> console.log(`server is running on port ${port}`))
 

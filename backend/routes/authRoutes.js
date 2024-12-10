@@ -1,5 +1,5 @@
 import express from "express";
-import {loginUser , getUserProfile , logoutUser} from "../controllers/userController.js";
+import {loginUser , getUserProfile , logoutUser , getAllUsersExceptOne} from "../controllers/userController.js";
 import { registerTeacher } from "../controllers/teacherController.js";
 import {registerMentor} from "../controllers/mentorController.js"
 
@@ -10,6 +10,7 @@ router.post("/register_mentor", registerMentor); // Registration route for mento
 router.post("/login", loginUser);       // Login route
 router.post("/logout", logoutUser); // Logout route
 router.get("/profile/:id", getUserProfile);
+router.get("/users/except/:id", getAllUsersExceptOne);
 
 // Protected route to get user profile
 

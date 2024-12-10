@@ -29,7 +29,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/student" element={<Student />} />
           <Route path="/outils" element={<Tools />} />
-          <Route path='/network' element={<Network/>}/>
+          <Route path='/network/:id' element={<Network/>}/>
         </Routes>
     </Router>
   );

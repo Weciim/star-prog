@@ -11,8 +11,7 @@ import BrainMate from "./pages/BrainMate";
 import Contact from "./pages/Contact"
 import Student from "./pages/Student";
 import Tools from "./pages/Tools";
-
-
+import { Network } from "./pages/Network";
 
 export default function App() {
   return (
@@ -30,7 +29,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/student" element={<Student />} />
           <Route path="/outils" element={<Tools />} />
-
+          <Route path='/network' element={<Network/>}/>
         </Routes>
     </Router>
   );

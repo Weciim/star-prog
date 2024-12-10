@@ -130,7 +130,7 @@ const UserProfile = () => {
         <motion.div
         initial="hidden"
         whileInView="visible"
-        variants={rotateAnimation}
+        variants={fadeInRight}
         viewport={{ once: true, amount: 0.3 }}
         >        
         <ConnectWithColleagues></ConnectWithColleagues>
@@ -139,7 +139,7 @@ const UserProfile = () => {
         <motion.div
         initial="hidden"
         whileInView="visible"
-        variants={slideInLeft}
+        variants={fadeInLeft}
         viewport={{ once: true, amount: 0.3 }}
         >
         <ChatbotSection></ChatbotSection>
@@ -148,7 +148,7 @@ const UserProfile = () => {
         <motion.div
         initial="hidden"
         whileInView="visible"
-        variants={slideInRight}
+        variants={fadeInLeft}
         viewport={{ once: true, amount: 0.3 }}
         >       
         <MentorHelp></MentorHelp>
@@ -156,7 +156,7 @@ const UserProfile = () => {
         <motion.div
         initial="hidden"
         whileInView="visible"
-        variants={combinedEffect}
+        variants={fadeInRight}
         viewport={{ once: true, amount: 0.3 }}
         >         
         <PrivateDiscussionSection></PrivateDiscussionSection>

@@ -223,7 +223,7 @@ import axios from 'axios';
                 {selectedConversation.messages.map((message, index) => (
                   <li
                     key={index}
-                    className={`p-2 border-b ${
+                    className={`p-2 border-b  ${
                       message.senderId === localStorage.getItem('userId')
                         ? 'text-right bg-blue-100'
                         : 'text-left bg-gray-100'

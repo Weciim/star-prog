@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const Lessons = () => {
   // Variantes d'animation
@@ -114,9 +115,12 @@ const Lessons = () => {
           className="text-center"
           variants={cardVariants}
         >
-          <button className="px-6 py-3 bg-gradient-to-r from-purple-700 to-purple-900 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition">
-            Voir plus de cours
-          </button>
+        <Link
+          to="/courses"
+          className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg shadow-md hover:opacity-90 transition"
+        >
+          Visiter les Cours
+        </Link>
         </motion.div>
       </div>
     </motion.section>

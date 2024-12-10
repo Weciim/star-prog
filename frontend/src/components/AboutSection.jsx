@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const AboutSection = () => {
   return (
     <section className="bg-[#f5effb] py-16 px-6">
@@ -24,9 +24,12 @@ const AboutSection = () => {
           dans vos méthodes d'enseignement.
         </p>
         {/* Button */}
-        <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg shadow-md hover:opacity-90 transition">
+        <Link
+          to="/courses"
+          className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg shadow-md hover:opacity-90 transition"
+        >
           Visiter les Cours
-        </button>
+        </Link>
       </div>
     </section>
   );

@@ -10,7 +10,8 @@ import MentorProfile from "./pages/MentorProfile";
 import BrainMate from "./pages/BrainMate";
 import Contact from "./pages/Contact"
 import Student from "./pages/Student";
-import TeacherToolsDashboard from "./pages/TeacherToolsDashboard";
+import Tools from "./pages/Tools"
+import  Network from "./pages/Network"
 
 
 
@@ -29,12 +30,8 @@ export default function App() {
           <Route path="/BrainMate" element={<BrainMate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/student" element={<Student />} />
-<<<<<<< HEAD
           <Route path="/outils" element={<Tools />} />
           <Route path='/network/:id' element={<Network/>}/>
-=======
-          <Route path="/outils" element={<TeacherToolsDashboard />} />
->>>>>>> 832440f4dd979494988f4ad0f60298ca9af1b676
         </Routes>
     </Router>
   );

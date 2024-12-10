@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 
-export const Network = () => {
+ const Network = () => {
   const [userName, setUserName] = useState(null);
   const [users, setUsers] = useState([]);
   const [nameToSearch, setNameToSearch] = useState('');
@@ -296,3 +296,5 @@ export const Network = () => {
     </>
   );
 };
+
+export default Network

@@ -30,7 +30,6 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/student" element={<Student />} />
           <Route path="/outils" element={<TeacherToolsDashboard />} />
-
         </Routes>
     </Router>
   );

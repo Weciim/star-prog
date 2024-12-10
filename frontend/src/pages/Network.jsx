@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 
- const Network = () => {
+const Network = () => {
   const [userName, setUserName] = useState(null);
   const [users, setUsers] = useState([]);
   const [nameToSearch, setNameToSearch] = useState('');
@@ -38,11 +38,9 @@ import axios from 'axios';
             }
           );
 
-          const usersWithImages = usersResponse.data.users.map((user) => ({
+          const usersWithImages = usersResponse.data.users.map((user, index) => ({
             ...user,
-            image: `https://randomuser.me/api/portraits/lego/${Math.floor(
-              Math.random() * 10
-            )}.jpg`,
+            image: `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'men' : 'women'}/${index}.jpg`,
           }));
 
           setUsers(usersWithImages);
@@ -125,15 +123,6 @@ import axios from 'axios';
           messages: [...prev.messages, response.data],
         }));
         setNewMessage('');
-        const response2 = await axios.get(
-          `http://localhost:5000/api/convo/getConvo/${userId}?user2Id=${idToText}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        ); 
-        setSelectedConversation(response2.data);
       } catch (error) {
         console.error('Failed to send message:', error);
       }
@@ -219,29 +208,31 @@ import axios from 'axios';
           <h3 className="text-lg font-bold">Conversation</h3>
           <div className="flex-1 overflow-y-auto">
             {selectedConversation ? (
-              <ul>
+              <ul className="flex flex-col gap-2 p-2">
                 {selectedConversation.messages.map((message, index) => (
                   <li
                     key={index}
-                    className={`p-2 border-b  ${
+                    className={`max-w-[75%] p-3 rounded-lg shadow-md ${
                       message.senderId === localStorage.getItem('userId')
-                        ? 'text-right bg-blue-100'
-                        : 'text-left bg-gray-100'
+                        ? 'self-end bg-purple-500 text-white'
+                        : 'self-start bg-gray-300 text-gray-800'
                     }`}
                   >
-                    <strong>
+                    <p className={`text-sm p-1 font-semibold ${
+                      message.senderId === localStorage.getItem('userId')
+                        ? 'text-purple-900'
+                        : 'text-gray-800'
+                    }`}>
                       {message.senderId === localStorage.getItem('userId')
                         ? 'You'
                         : nameTexting}
-                    </strong>
-                    : {message.content}
+                    </p>
+                    <p className='p-1'>{message.content}</p>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500">
-                Select a user to view the conversation.
-              </p>
+              <p className="text-gray-500">Select a user to view the conversation.</p>
             )}
           </div>
           {selectedConversation && (
@@ -297,4 +288,4 @@ import axios from 'axios';
   );
 };
 
-export default Network
+export default Network;

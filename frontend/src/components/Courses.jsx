@@ -1,7 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import courseimg from '../assets/images/course.png'; // Update this import path
+import course1 from '../assets/images/cours1.jpg'
+import course2 from '../assets/images/cours2.jpg'
+import course3 from '../assets/images/cours3.jpg'
+import course4 from '../assets/images/cours4.jpg'
+import course5 from '../assets/images/cours5.jpg'
+import course6 from '../assets/images/cours6.webp'
+import course7 from '../assets/images/cours7.jpg'
+import course8 from '../assets/images/cours8.jpg'
+
 
 const Courses = () => {
   const courses = [
@@ -9,47 +17,51 @@ const Courses = () => {
       title: "AI 101 pour enseignants",
       description: "Introduction aux fondamentaux de l'intelligence artificielle qui vous fournira les connaissances de base pour comprendre...",
       link: "https://www.khanacademy.org/college-careers-more/ai-for-education/x68ea37461197a514:unit-teaching-with-ai/x68ea37461197a514:ai-101-for-teachers-lesson/v/ai-101-for-teachers-fireside-chat-with-sal-khan-and-hadi-partovi",
+      img: course1
     },
     {
       title: "Démonstration d'outil d'IA",
       description: "Differentiating Class Materials With Drift",
       link: "https://www.edutopia.org/video/ai-tool-demo-differentiating-class-materials-with-diffit",
+      img:course2
     },
     {
       title: "Construire un noyau",
       description: "Expliquez comment le changement du nombre de neutrons du proton affecte le numéro atomique et les espaces isotopiques.",
       link: "https://phet.colorado.edu/en/simulations/build-a-nucleus",
+      img:course3
     },
     {
       title: "Laboratoire de données sur les projectiles",
       description: "Visualisez et écoutez les données résultant du caractère aléatoire de la vitesse et de l'angle de lancement dans le monde réel.",
       link: "https://phet.colorado.edu/en/simulations/projectile-data-lab",
+      img:course4
     },
     {
       title: "Laboratoire électromagnétique de Faraday",
       description: "Prédire la direction du champ magnétique pour différents emplacements autour d'une barre aimantée et d'un électroaimant.",
       link: "https://phet.colorado.edu/en/simulations/faradays-electromagnetic-lab",
+      img:course5
     },
     {
       title: "Aiment et boussole",
       description: "Prédire la direction du champ magnétique pour différents emplacements autour d'une barre aimantée et d'un électroaimant.",
       link: "https://phet.colorado.edu/en/simulations/magnet-and-compass",
+      img:course6
     },
     {
       title: "Addition de vecteurs",
       description: "Organiser des vecteurs graphiquement pour représenter l'addition ou la soustraction de vecteurs.",
       link: "https://phet.colorado.edu/en/simulations/vector-addition",
+      img:course7
     },
     {
       title: "Ajustement de courbe",
       description: "Expliquez comment la plage, l'incertitude et le nombre de points de données affectent le coefficient de corrélation et le chi carré.",
       link: "https://phet.colorado.edu/en/simulations/curve-fitting",
+      img:course8
     },
-    {
-      title: "imprimante 3D ",
-      description: "Expliquez comment construire une imprimante 3D a la maison.",
-      link: "https://www.youtube.com/watch?v=63Ei-H2gQ48",
-    },
+
   ];
 
   // Framer Motion Variants
@@ -85,7 +97,7 @@ const Courses = () => {
               variants={itemVariants} // Apply animation to each item
             >
               <img
-                src={courseimg}
+                src={course.img}
                 alt={course.title}
                 className="w-full h-40 object-cover"
               />

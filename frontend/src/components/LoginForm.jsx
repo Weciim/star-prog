@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import dark from '../assets/images/dark.png'
 
 
 const LoginForm = () => {
@@ -73,7 +74,7 @@ const LoginForm = () => {
       {/* Right Section: Login Form */}
       <div className="w-1/2 flex flex-col items-center justify-center px-12 space-y-8">
         {/* Logo */}
-        <h1 className="text-4xl font-bold text-purple-900">logo</h1>
+        <img src={dark} className='h-20' alt="" />
 
         {/* Welcome Message */}
         <h2 className="text-2xl font-semibold text-purple-700">

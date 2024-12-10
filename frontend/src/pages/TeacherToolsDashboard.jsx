@@ -11,7 +11,7 @@ import Navbar from "../components/Navbar";
 import SubscribeNow from "../components/SubscribeNow";
 import Footer from "../components/Footer";
 import TextSummarizer from "../components/TextSummarizer";
-
+import QuizTool from "../components/QuizTool";
 // Composant principal du tableau de bord
 const TeacherToolsDashboard = () => {
   const [activeSection, setActiveSection] = useState("quizzes");
@@ -83,93 +83,10 @@ const TeacherToolsDashboard = () => {
 
 // Composant de gestion des quiz
 const QuizManagement = () => {
-  const [quizzes, setQuizzes] = useState([]);
-  const [newQuiz, setNewQuiz] = useState({ title: "", subject: "" });
-
-  const createQuiz = () => {
-    if (newQuiz.title && newQuiz.subject) {
-      setQuizzes([
-        ...quizzes,
-        {
-          ...newQuiz,
-          id: Date.now(),
-          questions: [],
-        },
-      ]);
-      setNewQuiz({ title: "", subject: "" });
-    }
-  };
-
-  return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-6 text-purple-800">
-        Gestion des Quiz
-      </h2>
-
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <input
-            placeholder="Titre du Quiz"
-            value={newQuiz.title}
-            onChange={(e) => setNewQuiz({ ...newQuiz, title: e.target.value })}
-            className="border border-purple-300 p-2 rounded focus:ring-2 focus:ring-purple-500 focus:outline-none"
-          />
-          <input
-            placeholder="Matière"
-            value={newQuiz.subject}
-            onChange={(e) =>
-              setNewQuiz({ ...newQuiz, subject: e.target.value })
-            }
-            className="border border-purple-300 p-2 rounded focus:ring-2 focus:ring-purple-500 focus:outline-none"
-          />
-        </div>
-        <button
-          onClick={createQuiz}
-          className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors"
-        >
-          Créer un nouveau Quiz
-        </button>
-
-        {quizzes.length > 0 && (
-          <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-4 text-purple-700">
-              Quiz existants
-            </h3>
-            <ul>
-              {quizzes.map((quiz) => (
-                <li
-                  key={quiz.id}
-                  className="flex justify-between items-center bg-purple-100 p-3 rounded mb-2"
-                >
-                  <span className="text-purple-800">
-                    {quiz.title} - {quiz.subject}
-                  </span>
-                  <div>
-                    <button className="text-purple-600 mr-2 hover:text-purple-800">
-                      Modifier
-                    </button>
-                    <button className="text-purple-600 hover:text-purple-800">
-                      Supprimer
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  return <QuizTool />;
 };
 
 const ResumeUploader = () => {
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-
-  const handleFileUpload = (event) => {
-    const files = Array.from(event.target.files);
-    setUploadedFiles([...uploadedFiles, ...files]);
-  };
-
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-6 text-purple-800">
